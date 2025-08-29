@@ -2,6 +2,7 @@ package com.spring.crudpj.repository;
 
 import com.spring.crudpj.domain.entity.User;
 import com.spring.crudpj.repository.base.UserRepository;
+import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 @SpringBootTest  // DB 테스트를 위한 간소설정 (속도가 @SpringBootTest에 비해 월등히 빠름)
 public class UserRepositoryTest {
@@ -19,15 +21,15 @@ public class UserRepositoryTest {
     UserRepository userRepository;
 
     @BeforeEach
-    void setUp() {
-        User user = User.builder()
-                .username("testUser")
-                .email("test@example.com")
-                .password("password123")
-                .build();
-
-        userRepository.save(user);
-    }
+//    void setUp() {
+//        User user = User.builder()
+//                .username("testUser")
+//                .email("test@example.com")
+//                .password("password123")
+//                .build();
+//
+//        userRepository.save(user);
+//    }
 
 
     @Test
@@ -80,6 +82,21 @@ public class UserRepositoryTest {
         //then
         assertThat(flag).isTrue();
 //        assertFalse(flag);
+    }
+
+    @Test
+    @DisplayName("사용자명으로 삭제 테스트")
+    void deleteUserTest() {
+        //given
+        String username = "testUser";
+        User targetUser = userRepository.findByUsername(username).orElseThrow();
+
+        //when
+        userRepository.deleteById(targetUser.getId());
+
+        //then
+        User deletedUser = userRepository.findByUsername(username).orElse(null);
+        assertNull(deletedUser);
     }
 
 }
