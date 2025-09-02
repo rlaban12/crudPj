@@ -30,7 +30,7 @@ logging:
 # jwt setting
 jwt:
   # secret key (?? ????? ????? ??)
-  secret: xgvlyEyY3xOXlr2zKK74vzNx53hSNY6I8Pffbd7AiuY=
+  secret: iSCkPmXVv5n1n0kMr6A0oh0ATuI9PG9zjeRJUV9KfzM=
   # ???? (???) - 24??
   expiration: 86400000
 

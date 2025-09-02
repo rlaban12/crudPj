@@ -21,15 +21,15 @@ public class UserRepositoryTest {
     UserRepository userRepository;
 
     @BeforeEach
-//    void setUp() {
-//        User user = User.builder()
-//                .username("testUser")
-//                .email("test@example.com")
-//                .password("password123")
-//                .build();
-//
-//        userRepository.save(user);
-//    }
+    void setUp() {
+        User user = User.builder()
+                .username("testUser")
+                .email("test@example.com")
+                .password("password123")
+                .build();
+
+        userRepository.save(user);
+    }
 
 
     @Test
