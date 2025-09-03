@@ -1,0 +1,99 @@
+/* 모달 배경 (처음엔 안 보임) */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+/* 모달 박스 */
+.modal {
+    background-color: white;
+    border: 2px solid dodgerblue;
+    border-radius: 30px;
+    width: 300px;
+    padding: 30px 20px;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* 닫기 버튼 */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 28px;
+    height: 28px;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-weight: bold;
+    background: white;
+    cursor: pointer;
+}
+
+.modal h2 {
+    font-size: 16px;
+    color: blueviolet;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    color: blueviolet;
+    font-size: 13px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    border: 1.5px solid blueviolet;
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.login-btn {
+    width: 90%;
+    padding: 12px;
+    background-color: blueviolet;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: indigo;
+}
+
+/* 로그인 모달 열기 버튼 */
+.open-login-btn {
+    display: block;
+    width: 120px;
+    margin: 15px auto;
+    padding: 12px 0;
+    background-color: blue;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 메인</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login.css">
+
+</head>
+<body>
+
+<!-- 메인 화면 -->
+<div class="container">
+    <h1>게시판</h1>
+    <button class="open-login-btn">로그인</button>
+    <button class="btn">회원가입</button>
+</div>
+
+
+<!-- 모달 오버레이 -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+        <button class="close-btn" id="closeBtn">X</button>
+        <h2>로그인</h2>
+        <form>
+            <label for="userId">아이디</label>
+            <input type="text" id="userId" placeholder="아이디 입력">
+
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" placeholder="비밀번호 입력">
+
+            <button type="submit" class="login-btn">로그인</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // 요소 선택
+    const $openBtn = document.querySelector(".open-login-btn");
+    const $modalOverlay = document.getElementById("modalOverlay");
+    const $closeBtn = document.getElementById("closeBtn");
+
+    // 모달 열기
+    $openBtn.addEventListener("click", () => {
+        $modalOverlay.style.display = "flex";
+    });
+
+    // 모달 닫기
+    $closeBtn.addEventListener("click", () => {
+        $modalOverlay.style.display = "none";
+    });
+
+    // 배경 클릭 시 닫기
+    $modalOverlay.addEventListener("click", (e) => {
+        if (e.target === $modalOverlay) {
+            $modalOverlay.style.display = "none";
+        }
+    });
+</script>
+</body>
+</html>
